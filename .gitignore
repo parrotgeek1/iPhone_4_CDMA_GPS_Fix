@@ -1,0 +1,6 @@
+.DS_Store
+*.shsh2
+*.shsh
+version.xml
+*.o
+Firmware/*
