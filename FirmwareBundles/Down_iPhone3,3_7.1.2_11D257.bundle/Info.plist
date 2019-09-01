@@ -17,7 +17,7 @@
 			<!--key>Patch</key>
 			<string>kernelcache.release.patch</string-->
 			<key>DecryptPath</key>
-			<string>Patched/kernelcache.release.n92</string>
+			<string>Downgrade/kernelcache.release.n92</string>
 			<key>TypeFlag</key>
 			<integer>4</integer>
 		</dict>
@@ -84,7 +84,7 @@
 			<key>Key</key>
 			<string>8473b8932e1957c1e650f15cb3b6f49f497e241ebacfaa7d0b1eca3b15fc633c</string>
 			<key>DecryptPath</key>
-			<string>Patched/DeviceTree.n92ap.img3</string>
+			<string>Downgrade/DeviceTree.n92ap.img3</string>
 		</dict>
 		<key>RestoreLogo</key>
 		<dict>
@@ -95,7 +95,7 @@
 			<key>Key</key>
 			<string>73f0cef0f12ed5e43b53c87373a2be672481c4fc0f1f542c5e8da8b7d518611f</string>
 			<key>DecryptPath</key>
-			<string>Patched/applelogo@2x~iphone.s5l8930x.img3</string>
+			<string>Downgrade/applelogo@2x~iphone.s5l8930x.img3</string>
 		</dict>
 	</dict>
 	<key>RamdiskPatches</key>
@@ -107,6 +107,13 @@
 			<key>Patch</key>
 			<string>asr.patch</string>
 		</dict>
+		<!--key>restored_external</key>
+		<dict>
+			<key>File</key>
+			<string>usr/local/bin/restored_external</string>
+			<key>Patch</key>
+			<string>restored.patch</string>
+		</dict-->
 	</dict>
 	<key>RamdiskMountVolume</key>
 	<string>ramdisk</string>
