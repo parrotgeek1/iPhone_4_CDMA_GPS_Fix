@@ -1,5 +1,5 @@
 #!/bin/bash -e
-build=11D4259d
+build=11D4259e
 mkdir -p Firmware
 cd Firmware
 if [ ! -f Phoenix-3.6.03.Release.bbfw ] || [ ! -f Phoenix-3.6.03.Release.plist ] ; then
@@ -28,11 +28,11 @@ rm -rf "$iname"
 ./tools/ipsw "$1" "$iname" -bbupdate 713.tar >/dev/null
 rm -f 713.tar
 echo Replacing Restore.plist and BuildManifest.plist
-rm -f Restore.plist BuildManifest.plist
+rm -rf Restore.plist BuildManifest.plist
 cat RestoreT.plist | sed "s/11D257/$build/g" > Restore.plist
 cat BuildManifestT.plist | sed "s/11D257/$build/g" > BuildManifest.plist
 zip -qq "$iname" Restore.plist BuildManifest.plist
-rm -rf Restore.plist BuildManifest.plist
+rm -f Restore.plist BuildManifest.plist
 echo Replacing baseband firmware
 zip -qq -d "$iname" 'Firmware/Phoenix*'
 zip -qq "$iname" Firmware/Phoenix*

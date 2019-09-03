@@ -17,7 +17,7 @@ if [ "x$ptype" != "xiPhone3,3" ] ; then
 	rm -f Restore.plist
 	exit 1
 fi
-bndl=FirmwareBundles/Mod_${ptype}_${pvers}_${build}.bundle
+bndl=FirmwareBundles/Down_${ptype}_${pvers}_${build}.bundle
 if [ ! -d "$bndl" ]; then
 	echo "You must use a 7.1.2 IPSW as input."
 	rm -f Restore.plist
