@@ -1,6 +1,6 @@
 #!/bin/bash -e
-build=11D5259f
-modtime=201909091852
+build=11D259
+modtime=201910160021
 mkdir -p Firmware
 cd Firmware
 if [ ! -f Phoenix-3.6.03.Release.bbfw ] || [ ! -f Phoenix-3.6.03.Release.plist ] ; then
@@ -21,7 +21,7 @@ cp ../Firmware/Phoenix-3.6.03.Release.bbfw usr/standalone/update/Phoenix.Release
 cp ../Firmware/Phoenix-3.6.03.Release.plist usr/standalone/update/Phoenix.Release.plist
 chmod 0644 `find . -type f -not -name '.*'`
 chmod 0444 System/Library/CoreServices/SystemVersion.plist
-touch -a -c -m -t $modtime `find . -type f -not -name '.*'`
+TZ=PDT+7 touch -a -c -m -t $modtime `find . -type f -not -name '.*'`
 ../tools/root_tar/mytar cRf ../713.tar `find . -type f -not -name '.*'`
 cd ..
 rm -rf rootfs
@@ -33,12 +33,12 @@ echo Replacing Restore.plist and BuildManifest.plist
 rm -rf Restore.plist BuildManifest.plist
 cat RestoreT.plist | sed "s/11D257/$build/g" > Restore.plist
 cat BuildManifestT.plist | sed "s/11D257/$build/g" > BuildManifest.plist
-touch -a -c -m -t $modtime Restore.plist BuildManifest.plist
+TZ=PDT+7 touch -a -c -m -t $modtime Restore.plist BuildManifest.plist
 zip -qq "$iname" Restore.plist BuildManifest.plist
 rm -f Restore.plist BuildManifest.plist
 echo Replacing baseband firmware
 zip -qq -d "$iname" 'Firmware/Phoenix*'
-touch -a -c -m -t $modtime Firmware/Phoenix*
+TZ=PDT+7 touch -a -c -m -t $modtime Firmware/Phoenix*
 zip -qq "$iname" Firmware/Phoenix*
 echo Removing update ramdisk
 zip -qq -d "$iname" 058-4266-010.dmg
