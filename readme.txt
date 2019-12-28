@@ -1,6 +1,6 @@
 What is this?
 =============
-This is an unofficial update for the CDMA iPhone 4 (iPhone3,3), which installs the updated baseband used by the CDMA iPad 2's iOS 9.3.6 update. 
+This is an unofficial update for the CDMA iPhone 4 (iPhone3,3), which installs the new baseband included in the CDMA iPad 2's iOS 9.3.6 update. 
 This fixes the GPS bug which caused the CDMA iPhone 4 to stop keeping correct time after November 3, 2019 00:00 UTC.
 
 NOTE: The GSM iPhone 4 and all older devices are not affected by this bug, 
