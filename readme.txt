@@ -24,7 +24,7 @@ When your phone reboots, it will have the new baseband.
 
 Credits
 =======
-libimobiledevice and @tihmstar for idevicerestore
+s0uthwest, libimobiledevice, and @tihmstar for idevicerestore
 @axi0mx for ipwndfu
 @tihmstar for partialZipBrowser
 xerub and iPhone Dev Team for xpwn and firmware bundles
