@@ -27,5 +27,5 @@ Credits
 s0uthwest, libimobiledevice, and @tihmstar for idevicerestore
 @axi0mx for ipwndfu
 @tihmstar for partialZipBrowser
-xerub and iPhone Dev Team for xpwn and firmware bundles
+xerub and iPhone Dev Team for xpwn and firmware bundle
 @sequinn and @parrotgeek1 for root_tar
