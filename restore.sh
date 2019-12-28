@@ -133,14 +133,13 @@ cd ../../tss_server
 php_pid=$!
 sleep 1
 popd >/dev/null
-cd ../..
 echo
 echo 'IMPORTANT: an "FDR" error is normal, ignore it'
 echo
 set +e
-kill -9 $php_pid >/dev/null 2>&1
-./tools/idevicerestoreLHTSS -y -e -w "`realpath "$1"`"
+./tools/idevicerestoreLHTSS -y -e "`realpath "$1"`"
 ex=$?
+kill -9 $php_pid >/dev/null 2>&1
 rm -rf "`realpath "$1" | sed 's/\.ipsw$//'`"
 killall -CONT AMPDeviceDiscoveryAgent >/dev/null 2>&1 || true
 if [ $ex != 0 ]; then
