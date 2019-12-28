@@ -1,5 +1,4 @@
 #!/bin/bash -e
-build=11D259
 modtime=201910160021
 mkdir -p Firmware
 cd Firmware
@@ -11,31 +10,24 @@ if [ ! -f Phoenix-3.6.03.Release.bbfw ] || [ ! -f Phoenix-3.6.03.Release.plist ]
 fi
 cd ..
 echo "Creating patched IPSW (this will take several minutes)"
-rm -rf 713.tar rootfs
+rm -rf bb.tar rootfs
 mkdir rootfs
 cd rootfs
-mkdir -p System/Library/CoreServices
-cat ../SystemVersionT.plist | sed "s/11D257/$build/g" > System/Library/CoreServices/SystemVersion.plist
 mkdir -p usr/standalone/update
 cp ../Firmware/Phoenix-3.6.03.Release.bbfw usr/standalone/update/Phoenix.Release.bbfw
 cp ../Firmware/Phoenix-3.6.03.Release.plist usr/standalone/update/Phoenix.Release.plist
 chmod 0644 `find . -type f -not -name '.*'`
-chmod 0444 System/Library/CoreServices/SystemVersion.plist
 TZ=PDT+7 touch -a -c -m -t $modtime `find . -type f -not -name '.*'`
-../tools/root_tar/mytar cRf ../713.tar `find . -type f -not -name '.*'`
+../tools/root_tar/mytar cRf ../bb.tar `find . -type f -not -name '.*'`
 cd ..
 rm -rf rootfs
-iname="`echo "$1" | sed "s/7.1.2_11D257/7.1.3_$build/"`"
+iname="`echo "$1" | sed "s/.ipsw$/_9.3.6BB.ipsw/"`"
 rm -rf "$iname"
-./tools/ipsw "$1" "$iname" -bbupdate 713.tar >/dev/null
-rm -f 713.tar
-echo Replacing Restore.plist and BuildManifest.plist
-rm -rf Restore.plist BuildManifest.plist
-cat RestoreT.plist | sed "s/11D257/$build/g" > Restore.plist
-cat BuildManifestT.plist | sed "s/11D257/$build/g" > BuildManifest.plist
-TZ=PDT+7 touch -a -c -m -t $modtime Restore.plist BuildManifest.plist
-zip -qq "$iname" Restore.plist BuildManifest.plist
-rm -f Restore.plist BuildManifest.plist
+./tools/ipsw "$1" "$iname" -bbupdate bb.tar >/dev/null
+rm -f bb.tar
+echo Replacing BuildManifest.plist
+TZ=PDT+7 touch -a -c -m -t $modtime BuildManifest.plist
+zip -qq "$iname" BuildManifest.plist
 echo Replacing baseband firmware
 zip -qq -d "$iname" 'Firmware/Phoenix*'
 TZ=PDT+7 touch -a -c -m -t $modtime Firmware/Phoenix*

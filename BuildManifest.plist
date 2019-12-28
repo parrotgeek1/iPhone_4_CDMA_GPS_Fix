@@ -1750,7 +1750,7 @@
 	<key>ProductBuildVersion</key>
 	<string>11D257</string>
 	<key>ProductVersion</key>
-	<string>7.1.3</string>
+	<string>7.1.2</string>
 	<key>SupportedProductTypeIDs</key>
 	<dict>
 		<key>DFU</key>
