@@ -21,7 +21,7 @@ TZ=PDT+7 touch -a -c -m -t $modtime `find . -type f -not -name '.*'`
 ../tools/root_tar/mytar cRf ../bb.tar `find . -type f -not -name '.*'`
 cd ..
 rm -rf rootfs
-iname="`echo "$1" | sed "s/.ipsw$/_9.3.6BB.ipsw/"`"
+iname="`echo "$1" | sed 's/\.ipsw$/_9.3.6BB.ipsw/'`"
 rm -rf "$iname"
 ./tools/ipsw "$1" "$iname" -bbupdate bb.tar >/dev/null
 rm -f bb.tar
