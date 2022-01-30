@@ -31,8 +31,7 @@ When your phone reboots, it will have the new baseband.
 
 Credits
 =======
-s0uthwest, libimobiledevice, and @tihmstar for idevicerestore
-
+s0uthwest, libimobiledevice, and @tihmstar for idevicerestore (which I modified in a hex editor to use the custom local TSS server by default)
 
 @axi0mx for ipwndfu
 
