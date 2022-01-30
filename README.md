@@ -1,6 +1,6 @@
 Important Notice
 ================
-Development of the iPhone 4 CDMA GPS fix is now discontinued. The only changes which *might* be made to it would be those necessary to make it function on newer macOS versions; such compatibility will not be added if it imposes a significant maintenance burden.
+Development of the iPhone 4 CDMA GPS fix is now discontinued, and no further updates will be made to it. It is not compatible with macOS 12 Monterey or newer versions.
 
 What is this?
 =============
